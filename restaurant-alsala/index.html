@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="page_title">مطعم الأصالة | مأكولات كويتية</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%23b45309'/%3E%3Ctext x='50' y='65' text-anchor='middle' fill='%23fff' font-size='35'%3E🍽️%3C/text%3E%3C/svg%3E">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dark-mode.css" id="dark-mode-css" disabled>
+</head>
+<body>
+    <!-- HEADER -->
+    <header class="header" id="header">
+        <div class="container header-container">
+            <a href="#home" class="logo">
+                <i class="fas fa-utensils"></i>
+                <span data-i18n="brand_name">مطعم الأصالة</span>
+            </a>
+            <nav class="nav-menu" id="navMenu">
+                <ul class="nav-list">
+                    <li><a href="#home" class="active" data-i18n="nav_home">الرئيسية</a></li>
+                    <li><a href="#menu" data-i18n="nav_menu">القائمة</a></li>
+                    <li><a href="#gallery" data-i18n="nav_gallery">المعرض</a></li>
+                    <li><a href="#booking" data-i18n="nav_booking">حجز طاولة</a></li>
+                    <li><a href="#contact" data-i18n="nav_contact">تواصل</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <button id="langToggle" class="icon-btn"><i class="fas fa-globe"></i> <span>English</span></button>
+                <button id="darkModeToggle" class="icon-btn"><i class="fas fa-moon"></i></button>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero" id="home">
+        <svg class="hero-svg" viewBox="0 0 1000 600" preserveAspectRatio="none">
+            <rect width="1000" height="600" fill="url(#heroGrad)"/>
+            <defs><radialGradient id="heroGrad"><stop offset="0%" style="stop-color:#b45309;stop-opacity:0.2"/><stop offset="100%" style="stop-color:#451a03;stop-opacity:0.05"/></radialGradient></defs>
+            <g class="steam" transform="translate(200,300)"><circle cx="0" cy="0" r="15" fill="rgba(255,255,255,0.05)"/><circle cx="20" cy="-20" r="10" fill="rgba(255,255,255,0.04)"/><circle cx="-10" cy="-40" r="8" fill="rgba(255,255,255,0.03)"/></g>
+            <g class="steam delay" transform="translate(700,250)"><circle cx="0" cy="0" r="18" fill="rgba(255,255,255,0.04)"/><circle cx="-15" cy="-25" r="12" fill="rgba(255,255,255,0.03)"/><circle cx="10" cy="-50" r="8" fill="rgba(255,255,255,0.02)"/></g>
+        </svg>
+        <div class="container hero-content">
+            <div class="hero-text" data-aos="fade-left">
+                <span class="hero-badge" data-i18n="hero_badge">مأكولات كويتية أصيلة</span>
+                <h1 data-i18n="hero_title">طعم <span class="accent">الأصالة</span> في كل لقمة</h1>
+                <p data-i18n="hero_desc">نقدم أشهى المأكولات الكويتية والعربية في أجواء تراثية دافئة. جميع أطباقنا تحضر يومياً من مكونات طازجة.</p>
+                <div class="hero-btns">
+                    <a href="#menu" class="btn btn-primary" data-i18n="hero_btn1">تصفح القائمة</a>
+                    <a href="#booking" class="btn btn-outline" data-i18n="hero_btn2">احجز طاولة</a>
+                </div>
+                <div class="hero-stats">
+                    <div><span class="counter" data-target="15">0</span> <span data-i18n="stat_years">عام خبرة</span></div>
+                    <div><span class="counter" data-target="48">0</span> <span data-i18n="stat_dishes">طبق</span></div>
+                    <div><span class="counter" data-target="4.8">0</span> ⭐ <span data-i18n="stat_rating">تقييم</span></div>
+                </div>
+            </div>
+            <div class="hero-visual" data-aos="fade-right">
+                <div class="plate">
+                    <div class="plate-inner"><i class="fas fa-utensils"></i></div>
+                    <div class="plate-ring"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MENU -->
+    <section class="section" id="menu">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2 data-i18n="menu_title">قائمة الطعام</h2>
+                <p data-i18n="menu_sub">أشهى المأكولات الكويتية والعربية</p>
+            </div>
+            <div class="menu-tabs" data-aos="fade-up">
+                <button class="menu-tab active" onclick="showMenu('breakfast')" data-i18n="tab_breakfast">إفطار</button>
+                <button class="menu-tab" onclick="showMenu('lunch')" data-i18n="tab_lunch">غداء</button>
+                <button class="menu-tab" onclick="showMenu('dinner')" data-i18n="tab_dinner">عشاء</button>
+                <button class="menu-tab" onclick="showMenu('drinks')" data-i18n="tab_drinks">مشروبات</button>
+            </div>
+            <div class="menu-grid" id="menuGrid"></div>
+            <div class="pagination" id="pagination"></div>
+        </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section class="section bg-light" id="gallery">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2 data-i18n="gallery_title">معرض الصور</h2>
+                <p data-i18n="gallery_sub">أجواء مطعمنا وأطباقنا</p>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item" data-aos="zoom-in" onclick="openLightbox(0)">
+                    <div class="gallery-placeholder"><i class="fas fa-image"></i><span data-i18n="gal1">صالة المطعم</span></div>
+                </div>
+                <div class="gallery-item" data-aos="zoom-in" data-aos-delay="100" onclick="openLightbox(1)">
+                    <div class="gallery-placeholder"><i class="fas fa-image"></i><span data-i18n="gal2">المجلس العربي</span></div>
+                </div>
+                <div class="gallery-item" data-aos="zoom-in" data-aos-delay="200" onclick="openLightbox(2)">
+                    <div class="gallery-placeholder"><i class="fas fa-image"></i><span data-i18n="gal3">أطباقنا</span></div>
+                </div>
+                <div class="gallery-item" data-aos="zoom-in" data-aos-delay="300" onclick="openLightbox(3)">
+                    <div class="gallery-placeholder"><i class="fas fa-image"></i><span data-i18n="gal4">المطبخ</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LIGHTBOX -->
+    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+        <span class="lightbox-close">&times;</span>
+        <div class="lightbox-content" id="lightboxContent"></div>
+    </div>
+
+    <!-- BOOKING -->
+    <section class="section booking" id="booking">
+        <div class="container booking-container">
+            <div class="section-header" data-aos="fade-down">
+                <h2 data-i18n="booking_title">احجز طاولة</h2>
+                <p data-i18n="booking_sub">املأ البيانات وسنؤكد حجزك فوراً</p>
+            </div>
+            <form id="bookingForm" class="booking-form" data-aos="zoom-in">
+                <div class="form-row">
+                    <div class="form-group required-field"><label data-i18n="form_name">الاسم</label><input type="text" id="name" required></div>
+                    <div class="form-group required-field"><label data-i18n="form_phone">رقم الجوال</label><input type="tel" id="phone" required></div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group required-field"><label data-i18n="form_date">التاريخ</label><input type="date" id="date" required></div>
+                    <div class="form-group required-field"><label data-i18n="form_time">الوقت</label><input type="time" id="time" required></div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group required-field"><label data-i18n="form_guests">عدد الأشخاص</label><select id="guests" required><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5+</option></select></div>
+                    <div class="form-group required-field"><label data-i18n="form_area">المنطقة</label><select id="area" required><option value="indoor" data-i18n="area_indoor">داخلي</option><option value="outdoor" data-i18n="area_outdoor">خارجي</option><option value="arabic" data-i18n="area_arabic">مجلس عربي</option></select></div>
+                </div>
+                <div class="form-group full"><label data-i18n="form_notes">ملاحظات</label><textarea id="notes" rows="2"></textarea></div>
+                <button type="button" class="btn btn-primary btn-block" data-i18n="form_submit" onclick="submitBooking()">تأكيد الحجز</button>
+                <div id="formFeedback" class="form-feedback"></div>
+            </form>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section bg-light" id="contact">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2 data-i18n="contact_title">تواصل معنا</h2>
+                <p data-i18n="contact_sub">نحن سعداء بخدمتك</p>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-card" data-aos="fade-up">
+                    <i class="fas fa-phone"></i>
+                    <h4 data-i18n="contact_phone">اتصل بنا</h4>
+                    <p dir="ltr">2222 1234</p>
+                </div>
+                <div class="contact-card" data-aos="fade-up" data-aos-delay="100">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h4 data-i18n="contact_address">العنوان</h4>
+                    <a href="https://maps.google.com/?q=29.3759,47.9774" target="_blank" class="map-link" data-i18n="address">الكويت، حولي، شارع بيروت</a>
+                </div>
+                <div class="contact-card" data-aos="fade-up" data-aos-delay="200">
+                    <i class="fas fa-clock"></i>
+                    <h4 data-i18n="contact_hours">ساعات العمل</h4>
+                    <p data-i18n="hours">6 صباحاً – 12 منتصف الليل</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="social-links">
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-tiktok"></i></a>
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+            </div>
+            <p data-i18n="copyright">© 2025 مطعم الأصالة. قالب من <strong>موقعك</strong> – Mawqeak</p>
+        </div>
+    </footer>
+
+    <!-- BOTTOM NAV -->
+    <nav class="bottom-nav" id="bottomNav">
+        <a href="#home" class="bottom-nav-item active"><i class="fas fa-home"></i><span data-i18n="nav_home">الرئيسية</span></a>
+        <a href="#menu" class="bottom-nav-item"><i class="fas fa-utensils"></i><span data-i18n="nav_menu">قائمة</span></a>
+        <a href="#gallery" class="bottom-nav-item"><i class="fas fa-images"></i><span data-i18n="nav_gallery">معرض</span></a>
+        <a href="#booking" class="bottom-nav-item"><i class="fas fa-calendar-check"></i><span data-i18n="nav_booking">حجز</span></a>
+    </nav>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="js/lang.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
