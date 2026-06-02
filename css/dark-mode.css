@@ -17,23 +17,39 @@ body.dark .contact-card h4, body.dark .contact-card p,
 body.dark .form-group label, body.dark .bottom-nav-item,
 body.dark .footer p, body.dark .menu-tab,
 body.dark .gallery-placeholder span,
-body.dark .booking-form input, body.dark .booking-form textarea, body.dark .booking-form select {
+body.dark .booking-form input, body.dark .booking-form textarea, body.dark .booking-form select,
+body.dark .cart-dialog-header h3, body.dark .cart-item-name, body.dark .cart-total strong,
+body.dark .cart-dialog .cart-empty {
     color: #ffffff !important;
 }
 
 body.dark .btn-primary { background: var(--accent); color: #fff !important; }
 body.dark .btn-outline { border-color: var(--accent); color: var(--accent) !important; }
-body.dark .btn-outline:hover { background: var(--accent); color: #1a0a01 !important; }
 body.dark .menu-tab { border-color: var(--accent); color: var(--accent) !important; }
 body.dark .menu-tab.active, body.dark .menu-tab:hover { background: var(--accent); color: #fff !important; }
-body.dark .hero-text p { color: #fde68a !important; }
 body.dark .dish-price { background: var(--bg-secondary); }
-body.dark .booking-form input, body.dark .booking-form textarea, body.dark .booking-form select { background: rgba(255,255,255,0.03); border-color: rgba(255,255,255,0.1); }
-body.dark .booking-form select option { color: #ffffff !important; background: #1a0a01 !important; }
 body.dark .footer { background: #0d0501; }
-body.dark .footer .social-links a { background: rgba(255,255,255,0.05); }
-body.dark .footer .social-links a:hover { background: var(--accent); }
-body.dark .bottom-nav { background: var(--card-bg); border-top:1px solid rgba(255,255,255,0.05); }
-body.dark .bottom-nav-item.active { color: var(--accent) !important; }
-body.dark .map-link { color: #fbbf24; }
-body.dark .gallery-placeholder { background: var(--bg-secondary); }
+body.dark .cart-dialog-content { background: var(--card-bg); }
+body.dark .cart-item { border-bottom-color: rgba(255,255,255,0.1); }
+body.dark .cart-dialog-header { border-bottom-color: rgba(255,255,255,0.1); }
+body.dark .cart-dialog-footer { border-top-color: rgba(255,255,255,0.1); }
+body.dark .lang-combobox {
+    background-color: var(--card-bg);
+    border-color: var(--accent);
+    color: var(--accent);
+}
+body.dark .lang-combobox option {
+    background-color: var(--card-bg);
+    color: #ffffff;
+}
+body.dark .booking-form input, 
+body.dark .booking-form select, 
+body.dark .booking-form textarea {
+    background: rgba(255,255,255,0.05);
+    border-color: rgba(255,255,255,0.1);
+    color: #ffffff;
+}
+body.dark .booking-form select option {
+    background: #1a0a01;
+    color: #ffffff;
+}
