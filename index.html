@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title data-i18n="page_title">مطعم الأصالة | مأكولات كويتية</title>
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%23b45309'/%3E%3Ctext x='50' y='65' text-anchor='middle' fill='%23fff' font-size='35'%3E🍽️%3C/text%3E%3C/svg%3E">
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
@@ -29,7 +29,13 @@
                 </ul>
             </nav>
             <div class="header-actions">
-                <button id="langToggle" class="icon-btn"><i class="fas fa-globe"></i> <span>English</span></button>
+                <div class="language-selector">
+                    <select id="langSelect" class="lang-combobox">
+                        <option value="ar">🇸🇦 العربية</option>
+                        <option value="en">🇬🇧 English</option>
+                        <option value="ur">🇵🇰 اردو</option>
+                    </select>
+                </div>
                 <button id="darkModeToggle" class="icon-btn"><i class="fas fa-moon"></i></button>
             </div>
         </div>
@@ -37,17 +43,11 @@
 
     <!-- HERO -->
     <section class="hero" id="home">
-        <svg class="hero-svg" viewBox="0 0 1000 600" preserveAspectRatio="none">
-            <rect width="1000" height="600" fill="url(#heroGrad)"/>
-            <defs><radialGradient id="heroGrad"><stop offset="0%" style="stop-color:#b45309;stop-opacity:0.2"/><stop offset="100%" style="stop-color:#451a03;stop-opacity:0.05"/></radialGradient></defs>
-            <g class="steam" transform="translate(200,300)"><circle cx="0" cy="0" r="15" fill="rgba(255,255,255,0.05)"/><circle cx="20" cy="-20" r="10" fill="rgba(255,255,255,0.04)"/><circle cx="-10" cy="-40" r="8" fill="rgba(255,255,255,0.03)"/></g>
-            <g class="steam delay" transform="translate(700,250)"><circle cx="0" cy="0" r="18" fill="rgba(255,255,255,0.04)"/><circle cx="-15" cy="-25" r="12" fill="rgba(255,255,255,0.03)"/><circle cx="10" cy="-50" r="8" fill="rgba(255,255,255,0.02)"/></g>
-        </svg>
         <div class="container hero-content">
             <div class="hero-text" data-aos="fade-left">
                 <span class="hero-badge" data-i18n="hero_badge">مأكولات كويتية أصيلة</span>
                 <h1 data-i18n="hero_title">طعم <span class="accent">الأصالة</span> في كل لقمة</h1>
-                <p data-i18n="hero_desc">نقدم أشهى المأكولات الكويتية والعربية في أجواء تراثية دافئة. جميع أطباقنا تحضر يومياً من مكونات طازجة.</p>
+                <p data-i18n="hero_desc">نقدم أشهى المأكولات الكويتية والعربية في أجواء تراثية دافئة.</p>
                 <div class="hero-btns">
                     <a href="#menu" class="btn btn-primary" data-i18n="hero_btn1">تصفح القائمة</a>
                     <a href="#booking" class="btn btn-outline" data-i18n="hero_btn2">احجز طاولة</a>
@@ -75,48 +75,38 @@
                 <p data-i18n="menu_sub">أشهى المأكولات الكويتية والعربية</p>
             </div>
             <div class="menu-tabs" data-aos="fade-up">
-                <button class="menu-tab active" onclick="showMenu('breakfast')" data-i18n="tab_breakfast">إفطار</button>
-                <button class="menu-tab" onclick="showMenu('lunch')" data-i18n="tab_lunch">غداء</button>
-                <button class="menu-tab" onclick="showMenu('dinner')" data-i18n="tab_dinner">عشاء</button>
-                <button class="menu-tab" onclick="showMenu('drinks')" data-i18n="tab_drinks">مشروبات</button>
+                <button class="menu-tab active" data-category="breakfast" data-i18n="tab_breakfast">إفطار</button>
+                <button class="menu-tab" data-category="lunch" data-i18n="tab_lunch">غداء</button>
+                <button class="menu-tab" data-category="dinner" data-i18n="tab_dinner">عشاء</button>
+                <button class="menu-tab" data-category="drinks" data-i18n="tab_drinks">مشروبات</button>
             </div>
             <div class="menu-grid" id="menuGrid"></div>
             <div class="pagination" id="pagination"></div>
         </div>
     </section>
 
-    <!-- GALLERY -->
-    <section class="section bg-light" id="gallery">
-        <div class="container">
-            <div class="section-header" data-aos="fade-up">
-                <h2 data-i18n="gallery_title">معرض الصور</h2>
-                <p data-i18n="gallery_sub">أجواء مطعمنا وأطباقنا</p>
-            </div>
-            <div class="gallery-grid">
-                <div class="gallery-item" data-aos="zoom-in" onclick="openLightbox(0)">
-                    <div class="gallery-placeholder"><i class="fas fa-image"></i><span data-i18n="gal1">صالة المطعم</span></div>
-                </div>
-                <div class="gallery-item" data-aos="zoom-in" data-aos-delay="100" onclick="openLightbox(1)">
-                    <div class="gallery-placeholder"><i class="fas fa-image"></i><span data-i18n="gal2">المجلس العربي</span></div>
-                </div>
-                <div class="gallery-item" data-aos="zoom-in" data-aos-delay="200" onclick="openLightbox(2)">
-                    <div class="gallery-placeholder"><i class="fas fa-image"></i><span data-i18n="gal3">أطباقنا</span></div>
-                </div>
-                <div class="gallery-item" data-aos="zoom-in" data-aos-delay="300" onclick="openLightbox(3)">
-                    <div class="gallery-placeholder"><i class="fas fa-image"></i><span data-i18n="gal4">المطبخ</span></div>
-                </div>
-            </div>
+<!-- GALLERY -->
+<section class="section bg-light" id="gallery">
+    <div class="container">
+        <div class="section-header" data-aos="fade-up">
+            <h2 data-i18n="gallery_title">معرض الصور</h2>
+            <p data-i18n="gallery_sub">أجواء مطعمنا وأطباقنا</p>
         </div>
-    </section>
-
-    <!-- LIGHTBOX -->
-    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
-        <span class="lightbox-close">&times;</span>
-        <div class="lightbox-content" id="lightboxContent"></div>
+        <div class="gallery-grid" id="galleryGrid"></div>
     </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+    <span class="lightbox-close">&times;</span>
+    <div class="lightbox-content" id="lightboxContent">
+        <img id="lightboxImage" src="" alt="" style="max-width: 90%; max-height: 80vh; border-radius: 15px;">
+        <h3 id="lightboxTitle" style="margin-top: 15px;"></h3>
+    </div>
+</div>
 
     <!-- BOOKING -->
-    <section class="section booking" id="booking">
+    <section class="section" id="booking">
         <div class="container booking-container">
             <div class="section-header" data-aos="fade-down">
                 <h2 data-i18n="booking_title">احجز طاولة</h2>
@@ -124,19 +114,29 @@
             </div>
             <form id="bookingForm" class="booking-form" data-aos="zoom-in">
                 <div class="form-row">
-                    <div class="form-group required-field"><label data-i18n="form_name">الاسم</label><input type="text" id="name" required></div>
+                    <div class="form-group required-field"><label data-i18n="form_name">الاسم الكامل</label><input type="text" id="name" required></div>
                     <div class="form-group required-field"><label data-i18n="form_phone">رقم الجوال</label><input type="tel" id="phone" required></div>
                 </div>
                 <div class="form-row">
-                    <div class="form-group required-field"><label data-i18n="form_date">التاريخ</label><input type="date" id="date" required></div>
-                    <div class="form-group required-field"><label data-i18n="form_time">الوقت</label><input type="time" id="time" required></div>
+                    <div class="form-group required-field"><label data-i18n="form_date">تاريخ الحجز</label><input type="date" id="date" required></div>
+                    <div class="form-group required-field"><label data-i18n="form_time">وقت الحجز</label><input type="time" id="time" required></div>
                 </div>
                 <div class="form-row">
-                    <div class="form-group required-field"><label data-i18n="form_guests">عدد الأشخاص</label><select id="guests" required><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5+</option></select></div>
-                    <div class="form-group required-field"><label data-i18n="form_area">المنطقة</label><select id="area" required><option value="indoor" data-i18n="area_indoor">داخلي</option><option value="outdoor" data-i18n="area_outdoor">خارجي</option><option value="arabic" data-i18n="area_arabic">مجلس عربي</option></select></div>
+                    <div class="form-group required-field"><label data-i18n="form_guests">عدد الأشخاص</label><select id="guests" required>
+                        <option value="1" data-i18n="guests_1">1 شخص</option>
+                        <option value="2" data-i18n="guests_2">2 أشخاص</option>
+                        <option value="3" data-i18n="guests_3">3 أشخاص</option>
+                        <option value="4" data-i18n="guests_4">4 أشخاص</option>
+                        <option value="5" data-i18n="guests_5">5+ أشخاص</option>
+                    </select></div>
+                    <div class="form-group required-field"><label data-i18n="form_area">المنطقة</label><select id="area" required>
+                        <option value="indoor" data-i18n="area_indoor">داخلي</option>
+                        <option value="outdoor" data-i18n="area_outdoor">خارجي</option>
+                        <option value="arabic" data-i18n="area_arabic">مجلس عربي</option>
+                    </select></div>
                 </div>
                 <div class="form-group full"><label data-i18n="form_notes">ملاحظات</label><textarea id="notes" rows="2"></textarea></div>
-                <button type="button" class="btn btn-primary btn-block" data-i18n="form_submit" onclick="submitBooking()">تأكيد الحجز</button>
+                <button type="button" class="btn btn-primary btn-block" id="submitBookingBtn" data-i18n="form_submit">تأكيد الحجز</button>
                 <div id="formFeedback" class="form-feedback"></div>
             </form>
         </div>
@@ -153,17 +153,17 @@
                 <div class="contact-card" data-aos="fade-up">
                     <i class="fas fa-phone"></i>
                     <h4 data-i18n="contact_phone">اتصل بنا</h4>
-                    <p dir="ltr">2222 1234</p>
+                    <p dir="ltr">+966 50 765 2943</p>
                 </div>
                 <div class="contact-card" data-aos="fade-up" data-aos-delay="100">
                     <i class="fas fa-map-marker-alt"></i>
                     <h4 data-i18n="contact_address">العنوان</h4>
-                    <a href="https://maps.google.com/?q=29.3759,47.9774" target="_blank" class="map-link" data-i18n="address">الكويت، حولي، شارع بيروت</a>
+                    <a href="#" target="_blank" class="map-link" data-i18n="address">الشارع الرئيسي، المدينة</a>
                 </div>
                 <div class="contact-card" data-aos="fade-up" data-aos-delay="200">
                     <i class="fas fa-clock"></i>
                     <h4 data-i18n="contact_hours">ساعات العمل</h4>
-                    <p data-i18n="hours">6 صباحاً – 12 منتصف الليل</p>
+                    <p data-i18n="hours">6 صباحاً – 1 صباحاً</p>
                 </div>
             </div>
         </div>
@@ -176,18 +176,58 @@
                 <a href="#"><i class="fab fa-instagram"></i></a>
                 <a href="#"><i class="fab fa-tiktok"></i></a>
                 <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-whatsapp"></i></a>
             </div>
-            <p data-i18n="copyright">© 2026 مطعم الأصالة. قالب من <strong>موقعك</strong> – Mawqeak</p>
+            <p data-i18n="copyright">© 2026 مطعم الأصالة | جميع الحقوق محفوظة</p>
         </div>
     </footer>
 
-    <!-- BOTTOM NAV -->
+    <!-- BOTTOM NAV (Mobile) -->
     <nav class="bottom-nav" id="bottomNav">
         <a href="#home" class="bottom-nav-item active"><i class="fas fa-home"></i><span data-i18n="nav_home">الرئيسية</span></a>
         <a href="#menu" class="bottom-nav-item"><i class="fas fa-utensils"></i><span data-i18n="nav_menu">قائمة</span></a>
         <a href="#gallery" class="bottom-nav-item"><i class="fas fa-images"></i><span data-i18n="nav_gallery">معرض</span></a>
         <a href="#booking" class="bottom-nav-item"><i class="fas fa-calendar-check"></i><span data-i18n="nav_booking">حجز</span></a>
     </nav>
+
+    <!-- FLOATING WHATSAPP CART -->
+    <div class="floating-cart" id="floatingCart">
+        <div class="cart-widget" id="cartWidget" onclick="openCartDialog()">
+            <i class="fab fa-whatsapp fa-2x"></i>
+            <span id="cartTotalPrice">0.00 د.ك</span>
+            <span id="cartBadge" class="cart-badge">0</span>
+        </div>
+    </div>
+
+    <!-- CART DIALOG (Modal) -->
+    <div class="cart-dialog" id="cartDialog">
+        <div class="cart-dialog-content">
+            <div class="cart-dialog-header">
+                <h3 data-i18n="cart_title">طلباتي 🛒</h3>
+                <span class="cart-dialog-close" onclick="closeCartDialog()">&times;</span>
+            </div>
+            <div class="cart-dialog-body" id="cartDialogBody">
+                <!-- حقل اسم العميل -->
+                <div class="customer-name-field" style="margin-bottom: 15px; padding: 0 10px;">
+                    <label id="customerNameLabel" style="display: block; margin-bottom: 8px; font-weight: bold;">👤 اسمك الكريم:</label>
+                    <input type="text" id="customerName" placeholder="أدخل اسمك" style="width: 100%; padding: 10px; border: 1px solid var(--accent); border-radius: 10px; font-family: inherit; background: var(--card-bg); color: var(--text);" required>
+                </div>
+                <div class="cart-items-list" id="cartItemsList">
+                    <div class="cart-empty" data-i18n="cart_empty">السلة فارغة</div>
+                </div>
+            </div>
+            <div class="cart-dialog-footer">
+                <div style="display: flex; justify-content: space-between; align-items: center; gap: 10px; flex-wrap: wrap;">
+                    <button id="clearAllBtn" class="btn btn-outline" style="background: #ef4444; color: white; border: none;">🗑️ حذف الكل</button>
+                    <div class="cart-total">
+                        <strong data-i18n="cart_total">الإجمالي:</strong>
+                        <span id="dialogTotalPrice">0.00 د.ك</span>
+                    </div>
+                </div>
+                <button class="btn btn-primary" id="sendOrderBtn" style="margin-top: 15px; width: 100%;" data-i18n="cart_send">إرسال الطلب 📱</button>
+            </div>
+        </div>
+    </div>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="js/lang.js"></script>
