@@ -705,7 +705,9 @@ function loadGallery() {
     grid.innerHTML = galleryItems.map((item, idx) => `
         <div class="gallery-item" data-aos="zoom-in" data-aos-delay="${idx * 100}" onclick="openLightbox(${idx})">
             <div class="gallery-image-wrapper">
-                <img src="${item.img}" alt="${translations[currentLang]?.[item.titleKey] || item.title}" 
+                <img  src="${item.img}" alt="${translations[currentLang]?.[item.titleKey] || item.title}"
+                loading="lazy"
+                    decoding="async" 
                      style="width: 100%; height: 220px; object-fit: cover; border-radius: 24px; transition: 0.3s; cursor: pointer;">
                 <div class="gallery-overlay">
                     <i class="fas fa-search-plus" style="color: white; font-size: 2rem;"></i>
@@ -783,4 +785,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     
     AOS.refresh();
+});
+// منع الكليك يمين فقط
+document.addEventListener('contextmenu', (e) => {
+    e.preventDefault();
+    return false;
 });
